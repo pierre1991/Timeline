@@ -366,10 +366,10 @@
             </objects>
             <point key="canvasLocation" x="-4473" y="631"/>
         </scene>
-        <!--Login Signup Choice View Controller-->
+        <!--Login Signup View Controller-->
         <scene sceneID="rQo-Zk-NSX">
             <objects>
-                <viewController id="raD-ID-gdn" customClass="LoginSignupChoiceViewController" customModule="Timeline" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="raD-ID-gdn" customClass="LoginSignupViewController" customModule="Timeline" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="O0l-Nc-QO3"/>
                         <viewControllerLayoutGuide type="bottom" id="J11-FT-Ea3"/>
@@ -377,8 +377,65 @@
                     <view key="view" contentMode="scaleToFill" id="Edn-eh-csI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="SfS-Vs-xrb">
+                                <rect key="frame" x="20" y="105" width="560" height="253"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YX5-Ni-Pbj">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x8w-rh-TGr">
+                                        <rect key="frame" x="0.0" y="42" width="560" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MBN-gv-iLC">
+                                        <rect key="frame" x="0.0" y="84" width="560" height="43"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="bio" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eQc-nL-cw8">
+                                        <rect key="frame" x="0.0" y="127" width="560" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="url" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G3q-BS-jTC">
+                                        <rect key="frame" x="0.0" y="169" width="560" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeZ-yH-0nm">
+                                        <rect key="frame" x="0.0" y="211" width="560" height="42"/>
+                                        <state key="normal" title="Action"/>
+                                        <connections>
+                                            <action selector="actionButtonTapped:" destination="raD-ID-gdn" eventType="touchUpInside" id="7iQ-sN-RCQ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="YX5-Ni-Pbj" firstAttribute="leading" secondItem="SfS-Vs-xrb" secondAttribute="leading" id="biI-O6-HRT"/>
+                                    <constraint firstAttribute="trailing" secondItem="YX5-Ni-Pbj" secondAttribute="trailing" id="ov3-LB-UQa"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SfS-Vs-xrb" firstAttribute="trailing" secondItem="Edn-eh-csI" secondAttribute="trailingMargin" id="c3w-Gt-WRl"/>
+                            <constraint firstItem="SfS-Vs-xrb" firstAttribute="leading" secondItem="Edn-eh-csI" secondAttribute="leadingMargin" id="rgc-dE-ngB"/>
+                            <constraint firstItem="J11-FT-Ea3" firstAttribute="top" secondItem="SfS-Vs-xrb" secondAttribute="bottom" constant="242" id="ruu-Fy-nWI"/>
+                            <constraint firstItem="SfS-Vs-xrb" firstAttribute="top" secondItem="O0l-Nc-QO3" secondAttribute="bottom" constant="41" id="sYc-LD-Kd5"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="actionButton" destination="qeZ-yH-0nm" id="Ryo-Sh-y1N"/>
+                        <outlet property="bioField" destination="eQc-nL-cw8" id="Nea-xN-wDN"/>
+                        <outlet property="emailField" destination="x8w-rh-TGr" id="H7b-Sy-elp"/>
+                        <outlet property="passwordField" destination="MBN-gv-iLC" id="JUw-gT-ykD"/>
+                        <outlet property="urlField" destination="G3q-BS-jTC" id="nvK-OV-eVb"/>
+                        <outlet property="usernameField" destination="YX5-Ni-Pbj" id="A4F-U6-YmA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iOV-rE-a5G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
