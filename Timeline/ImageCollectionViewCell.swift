@@ -15,8 +15,6 @@ class ImageCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     
 
-    
-    
     func updateWithImageIdentifier(identifier: String) {
         ImageController.imageForIdentifer(identifier) { (image) -> Void in
             
