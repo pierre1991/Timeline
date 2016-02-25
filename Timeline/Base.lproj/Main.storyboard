@@ -133,7 +133,7 @@
                         <segue destination="6mN-xf-QGS" kind="relationship" relationship="viewControllers" id="kb7-jz-HOv"/>
                         <segue destination="YDE-k5-Ay5" kind="relationship" relationship="viewControllers" id="b2C-ge-kaG"/>
                         <segue destination="7Mp-ip-2s8" kind="relationship" relationship="viewControllers" id="dBU-pz-qaJ"/>
-                        <segue destination="2Ak-Ls-6oI" kind="presentation" id="Lnc-t9-QzS"/>
+                        <segue destination="2Ak-Ls-6oI" kind="presentation" identifier="noCurrentUser" id="Lnc-t9-QzS"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2e5-5h-23p" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -295,14 +295,14 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="280" height="110"/>
                                                 <state key="normal" title="Log In"/>
                                                 <connections>
-                                                    <segue destination="raD-ID-gdn" kind="show" id="LtL-0D-lN1"/>
+                                                    <segue destination="raD-ID-gdn" kind="show" identifier="toLogin" id="LtL-0D-lN1"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHZ-7h-bxb">
                                                 <rect key="frame" x="280" y="0.0" width="280" height="110"/>
                                                 <state key="normal" title="Sign Up"/>
                                                 <connections>
-                                                    <segue destination="raD-ID-gdn" kind="show" id="rY1-Gl-7zc"/>
+                                                    <segue destination="raD-ID-gdn" kind="show" identifier="toSignup" id="rY1-Gl-7zc"/>
                                                 </connections>
                                             </button>
                                         </subviews>
