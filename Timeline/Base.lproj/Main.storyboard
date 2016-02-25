@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Add Photo Table View Controller-->
@@ -250,34 +251,120 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Bn-Vk-aRO">
-                                <rect key="frame" x="279" y="147" width="42" height="30"/>
-                                <state key="normal" title="Log In"/>
-                                <connections>
-                                    <segue destination="raD-ID-gdn" kind="show" id="LtL-0D-lN1"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHZ-7h-bxb">
-                                <rect key="frame" x="273" y="259" width="55" height="30"/>
-                                <state key="normal" title="Sign Up"/>
-                                <connections>
-                                    <segue destination="raD-ID-gdn" kind="show" id="rY1-Gl-7zc"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="Jf3-Ai-IZ2">
+                                <rect key="frame" x="20" y="105" width="560" height="253"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timeline" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zXs-cA-lgx">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="96"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="96" id="0Ji-EW-Bf8"/>
+                                            <constraint firstAttribute="width" constant="560" id="80w-Dr-BiD"/>
+                                            <constraint firstAttribute="height" constant="96" id="HHk-3Y-2TE"/>
+                                            <constraint firstAttribute="width" constant="560" id="oi0-en-lNC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="80"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="0Ji-EW-Bf8"/>
+                                                <exclude reference="80w-Dr-BiD"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a fun place" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yvd-dT-Qdj">
+                                        <rect key="frame" x="0.0" y="96" width="560" height="47"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="560" id="GWR-gy-eQg"/>
+                                            <constraint firstAttribute="height" constant="29" id="cxf-pm-2J1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="GWR-gy-eQg"/>
+                                                <exclude reference="cxf-pm-2J1"/>
+                                            </mask>
+                                        </variation>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="NU6-CI-Cph">
+                                        <rect key="frame" x="0.0" y="143" width="560" height="110"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Bn-Vk-aRO">
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="110"/>
+                                                <state key="normal" title="Log In"/>
+                                                <connections>
+                                                    <segue destination="raD-ID-gdn" kind="show" id="LtL-0D-lN1"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IHZ-7h-bxb">
+                                                <rect key="frame" x="280" y="0.0" width="280" height="110"/>
+                                                <state key="normal" title="Sign Up"/>
+                                                <connections>
+                                                    <segue destination="raD-ID-gdn" kind="show" id="rY1-Gl-7zc"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="cn4-K6-w1Y"/>
+                                            <constraint firstAttribute="width" constant="560" id="glm-jB-pkA"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="cn4-K6-w1Y"/>
+                                                <exclude reference="glm-jB-pkA"/>
+                                            </mask>
+                                        </variation>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="zXs-cA-lgx" secondAttribute="trailing" id="0CP-iT-lXJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="NU6-CI-Cph" secondAttribute="bottom" id="GNB-Lz-88n"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yvd-dT-Qdj" secondAttribute="trailing" id="HfI-db-olJ"/>
+                                    <constraint firstAttribute="height" constant="253" id="IA4-6P-mqa"/>
+                                    <constraint firstAttribute="width" constant="560" id="IWf-If-9Nz"/>
+                                    <constraint firstItem="NU6-CI-Cph" firstAttribute="leading" secondItem="Jf3-Ai-IZ2" secondAttribute="leading" id="LFq-Og-hlK"/>
+                                    <constraint firstItem="Yvd-dT-Qdj" firstAttribute="leading" secondItem="Jf3-Ai-IZ2" secondAttribute="leading" id="LRI-F1-upS"/>
+                                    <constraint firstAttribute="trailing" secondItem="zXs-cA-lgx" secondAttribute="trailing" id="UVF-tg-5Gt"/>
+                                    <constraint firstItem="zXs-cA-lgx" firstAttribute="leading" secondItem="Jf3-Ai-IZ2" secondAttribute="leading" id="Xy9-Fj-NMJ"/>
+                                    <constraint firstItem="NU6-CI-Cph" firstAttribute="leading" secondItem="Jf3-Ai-IZ2" secondAttribute="leading" id="aJQ-BE-wHz"/>
+                                    <constraint firstItem="zXs-cA-lgx" firstAttribute="leading" secondItem="Jf3-Ai-IZ2" secondAttribute="leading" id="f3v-sL-1Mm"/>
+                                    <constraint firstAttribute="trailing" secondItem="NU6-CI-Cph" secondAttribute="trailing" id="ga4-kx-s7x"/>
+                                    <constraint firstAttribute="bottom" secondItem="NU6-CI-Cph" secondAttribute="bottom" id="irX-hI-j7A"/>
+                                    <constraint firstAttribute="trailing" secondItem="Yvd-dT-Qdj" secondAttribute="trailing" id="jYZ-yd-ugK"/>
+                                    <constraint firstAttribute="trailing" secondItem="NU6-CI-Cph" secondAttribute="trailing" id="kHh-AZ-TOI"/>
+                                    <constraint firstItem="zXs-cA-lgx" firstAttribute="top" secondItem="Jf3-Ai-IZ2" secondAttribute="top" id="t5t-4j-ZNB"/>
+                                    <constraint firstItem="Yvd-dT-Qdj" firstAttribute="leading" secondItem="Jf3-Ai-IZ2" secondAttribute="leading" id="wZJ-eR-mbM"/>
+                                    <constraint firstItem="zXs-cA-lgx" firstAttribute="top" secondItem="Jf3-Ai-IZ2" secondAttribute="top" id="xDv-K7-iWh"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="0CP-iT-lXJ"/>
+                                        <exclude reference="f3v-sL-1Mm"/>
+                                        <exclude reference="xDv-K7-iWh"/>
+                                        <exclude reference="LRI-F1-upS"/>
+                                        <exclude reference="jYZ-yd-ugK"/>
+                                        <exclude reference="LFq-Og-hlK"/>
+                                        <exclude reference="irX-hI-j7A"/>
+                                        <exclude reference="kHh-AZ-TOI"/>
+                                    </mask>
+                                </variation>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="IHZ-7h-bxb" firstAttribute="centerX" secondItem="2Bn-Vk-aRO" secondAttribute="centerX" id="1E7-DA-0ow"/>
-                            <constraint firstItem="IHZ-7h-bxb" firstAttribute="top" secondItem="2Bn-Vk-aRO" secondAttribute="bottom" constant="82" id="NIc-7g-vyn"/>
-                            <constraint firstItem="2Bn-Vk-aRO" firstAttribute="top" secondItem="guD-mM-j1H" secondAttribute="bottom" constant="127" id="VLq-l5-dyj"/>
-                            <constraint firstItem="IHZ-7h-bxb" firstAttribute="centerX" secondItem="oRO-TM-vzy" secondAttribute="centerX" id="wdg-zu-ZiG"/>
+                            <constraint firstItem="Jf3-Ai-IZ2" firstAttribute="leading" secondItem="oRO-TM-vzy" secondAttribute="leadingMargin" id="CQu-7f-qiR"/>
+                            <constraint firstItem="gTP-gW-5RE" firstAttribute="top" secondItem="Jf3-Ai-IZ2" secondAttribute="bottom" constant="242" id="Svf-C7-cC1"/>
+                            <constraint firstItem="Jf3-Ai-IZ2" firstAttribute="trailing" secondItem="oRO-TM-vzy" secondAttribute="trailingMargin" id="e0f-uv-mnr"/>
+                            <constraint firstItem="Jf3-Ai-IZ2" firstAttribute="top" secondItem="guD-mM-j1H" secondAttribute="bottom" constant="41" id="rnQ-fl-Kjk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="312-GY-VyS"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="brz-4y-qlA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4517" y="631"/>
+            <point key="canvasLocation" x="-4473" y="631"/>
         </scene>
         <!--Login Signup Choice View Controller-->
         <scene sceneID="rQo-Zk-NSX">
