@@ -14,9 +14,12 @@ class LoginSignupViewController: UIViewController {
     enum ViewMode {
         case Signup
         case Login
+        case Edit
     }
     
     var viewMode = ViewMode.Signup
+    
+    var user: User?
     
     
     
@@ -51,6 +54,15 @@ class LoginSignupViewController: UIViewController {
                             self.presentValidationAlertWithTitle("Unable to Singup", message: "please try again")
                         }
                     })
+            case .Edit:
+                    UserController.updateUser(user!, username: usernameField.text!, bio: bioField.text, url: urlField.text, completion: { (success, user) -> Void in
+                        if success {
+                            self.dismissViewControllerAnimated(true, completion: nil)
+                        
+                        } else {
+                            self.presentValidationAlertWithTitle("Unable to update user", message: "please try again")
+                        }
+                    })
             }
             
         } else {
@@ -78,6 +90,8 @@ class LoginSignupViewController: UIViewController {
                 return !(emailField.text!.isEmpty || passwordField.text!.isEmpty)
             case .Signup:
                 return !(usernameField.text!.isEmpty || emailField.text!.isEmpty || passwordField.text!.isEmpty)
+            case .Edit:
+                return !(usernameField.text!.isEmpty)
             }
         }
     }
@@ -93,9 +107,25 @@ class LoginSignupViewController: UIViewController {
             urlField.hidden = true
             
             actionButton.setTitle("Login", forState: .Normal)
+        case .Edit:
+            emailField.hidden = true
+            passwordField.hidden = true
+            actionButton.setTitle("Update", forState: .Normal)
+        
+        
+            if let user = user {
+                usernameField.text = user.username
+                bioField.text = user.bio
+                urlField.text = user.url
+            }
         }
     }
     
+    
+    func updateWithUser(user: User) {
+        self.user = user
+        viewMode = .Edit
+    }
     
     
     

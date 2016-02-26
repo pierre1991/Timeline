@@ -149,7 +149,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="la8-5f-uv6">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="usernameCell" id="la8-5f-uv6">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="la8-5f-uv6" id="jTz-EX-yUr">
@@ -175,8 +175,14 @@
                                 <segment title="Friends"/>
                                 <segment title="Add Friends"/>
                             </segments>
+                            <connections>
+                                <action selector="selectedIndexChanged:" destination="WHs-dF-nI1" eventType="valueChanged" id="TvH-7g-AqF"/>
+                            </connections>
                         </segmentedControl>
                     </navigationItem>
+                    <connections>
+                        <outlet property="modeSegmentedControl" destination="KXv-Zb-KZ7" id="J5u-Oa-0MP"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tCL-Qh-sEV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -590,7 +596,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dq9-g5-frl"/>
+        <segue reference="ZN5-to-2c2"/>
         <segue reference="rY1-Gl-7zc"/>
     </inferredMetricsTieBreakers>
 </document>
