@@ -17,7 +17,7 @@ class ProfileViewController: UIViewController {
     
 
     @IBOutlet weak var collectionView: UICollectionView!
-    
+    @IBOutlet weak var editBarItem: UIBarButtonItem!
     
     
     func updateBasedOnUser() {
@@ -37,19 +37,30 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if user == nil {
+            user = UserController.sharedController.currentUser
+            
+            editBarItem.enabled = true
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    
+    
+    //MARK: Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toEditProfile" {
+            let destinationVC = segue.destinationViewController as! LoginSignupViewController
+            
+            destinationVC.updateWithUser(user!)
+        }
     }
 }
 
 
 
+//MARK: UICollectionView Data Source
 
 extension ProfileViewController: UICollectionViewDataSource {
     
@@ -68,17 +79,19 @@ extension ProfileViewController: UICollectionViewDataSource {
     }
     
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        <#code#>
+        let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "headerView", forIndexPath: indexPath) as! ProfileHeaderCollectionReusableView
+        
+        headerView.updateWithUser(user!)
+        headerView.delegate = self
+        return headerView
     }
-    
-    
 }
 
 
 
+//MARK: ProfileHeaderCollection Delegate
 
 extension ProfileViewController: ProfileHeaderCollectionReusableViewDelegate {
-    
     
     func urlButtonTapped() {
         
@@ -90,8 +103,6 @@ extension ProfileViewController: ProfileHeaderCollectionReusableViewDelegate {
         }
         
     }
-    
-    
     
     func followUserButtonTapped() {
     
@@ -112,12 +123,6 @@ extension ProfileViewController: ProfileHeaderCollectionReusableViewDelegate {
             })
         }
     }
-    
-
-  
-
-    
-    
 }
 
 

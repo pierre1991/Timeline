@@ -328,9 +328,16 @@
                             <constraint firstAttribute="trailing" secondItem="974-Op-JY2" secondAttribute="trailing" id="Zq3-T1-oyD"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="wX1-r2-frQ"/>
+                    <navigationItem key="navigationItem" id="wX1-r2-frQ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="IhC-op-4Kx">
+                            <connections>
+                                <segue destination="raD-ID-gdn" kind="presentation" identifier="toEditProfile" id="s1E-ni-Rox"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="974-Op-JY2" id="0iZ-yg-ql1"/>
+                        <outlet property="editBarItem" destination="IhC-op-4Kx" id="zgD-e8-N1V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lme-LF-pw5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -597,6 +604,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="ZN5-to-2c2"/>
-        <segue reference="rY1-Gl-7zc"/>
+        <segue reference="s1E-ni-Rox"/>
     </inferredMetricsTieBreakers>
 </document>
