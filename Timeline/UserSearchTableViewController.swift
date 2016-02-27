@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserSearchTableViewController: UITableViewController {
+class UserSearchTableViewController: UITableViewController, UISearchResultsUpdating {
 
     
     
@@ -32,7 +32,38 @@ class UserSearchTableViewController: UITableViewController {
         super.viewDidLoad()
         
         updateViewBasedOnMode()
+        setupSearchController()
     }
+    
+    
+    
+    var searchController: UISearchController!
+    
+    
+    
+    func setupSearchController() {
+        let resultsController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("UserSearchResultsTableViewController")
+        
+        searchController = UISearchController(searchResultsController: resultsController)
+        searchController.hidesNavigationBarDuringPresentation = true
+        searchController.searchBar.sizeToFit()
+        searchController.searchResultsUpdater = self
+        tableView.tableHeaderView = searchController.searchBar
+        
+        definesPresentationContext = true
+    }
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        
+        let searchTerm = searchController.searchBar.text!.lowercaseString
+        
+        let resultsViewController = searchController.searchResultsController as! UserSearchResultsTableViewController
+        
+        resultsViewController.userResultsDataSource = userDataSource.filter({$0.username.lowercaseString.containsString(searchTerm)})
+        resultsViewController.tableView.reloadData()
+    }
+    
+    
 
     
     
@@ -97,10 +128,32 @@ class UserSearchTableViewController: UITableViewController {
         
         return cell
     }
+    
 
     
-    
-    
+    //MARK: Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toProfileView" {
+            guard let cell = sender as? UITableViewCell else {return}
+            
+            if let indexPath = tableView.indexPathForCell(cell) {
+                
+                let user = userDataSource[indexPath.row]
+                
+                let destinationVC = segue.destinationViewController as? ProfileViewController
+                destinationVC?.user = user
+                
+            }  else if let indexPath = (searchController.searchResultsController as? UserSearchResultsTableViewController)?.tableView.indexPathForCell(cell) {
+                
+                let user = (searchController.searchResultsController as! UserSearchResultsTableViewController).userResultsDataSource[indexPath.row]
+                
+                let destinationViewController = segue.destinationViewController as? ProfileViewController
+                destinationViewController?.user = user
+            }
+        }
+    }
+
+
     
     
     
