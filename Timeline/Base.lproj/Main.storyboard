@@ -35,34 +35,6 @@
             </objects>
             <point key="canvasLocation" x="-3030" y="-3040"/>
         </scene>
-        <!--User Search Results Table View Controller-->
-        <scene sceneID="moq-Rd-JJ5">
-            <objects>
-                <tableViewController storyboardIdentifier="resultsViewController" id="Q4w-Ua-WRi" customClass="UserSearchResultsTableViewController" customModule="Timeline" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7bp-Y4-bqG">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="sHR-Im-3nC">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sHR-Im-3nC" id="eQk-61-dYs">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Q4w-Ua-WRi" id="IKg-di-Vdv"/>
-                            <outlet property="delegate" destination="Q4w-Ua-WRi" id="hET-RC-j5u"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Ea-9C-Gkd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-4549" y="-3319"/>
-        </scene>
         <!--Timeline Table View Controller-->
         <scene sceneID="p8U-Sd-Zu2">
             <objects>
