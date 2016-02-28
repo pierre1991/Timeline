@@ -10,7 +10,7 @@ import Foundation
 
 struct User: Equatable {
     
-    var username: String
+    var username = ""
     var bio: String?
     var url: String?
     var identifier: String?

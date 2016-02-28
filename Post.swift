@@ -17,7 +17,7 @@ struct Post: Equatable {
     var caption: String?
     var identifier: String?
     
-    init(username: String, comments:[Comment] = [], likes:[Like] = [], imageEndPoint: String, caption: String? = nil, identifier: String? = nil) {
+    init(username: String = "", comments:[Comment] = [], likes:[Like] = [], imageEndPoint: String, caption: String? = nil, identifier: String? = nil) {
         self.username = username
         self.comments = comments
         self.likes = likes
@@ -30,3 +30,4 @@ struct Post: Equatable {
 func ==(lhs: Post, rhs: Post) -> Bool {
     return (lhs.username == rhs.identifier)
 }
+
