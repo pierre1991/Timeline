@@ -20,6 +20,10 @@
 		8F5EED6A1C837C2200E5875C /* AddPhotoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5EED691C837C2200E5875C /* AddPhotoTableViewController.swift */; };
 		8F5EED6C1C837CAB00E5875C /* LoginSingupChoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5EED6B1C837CAB00E5875C /* LoginSingupChoiceViewController.swift */; };
 		8F5EED6E1C837D2700E5875C /* LoginSignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5EED6D1C837D2700E5875C /* LoginSignupViewController.swift */; };
+		8F5EED711C837DD300E5875C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5EED701C837DD300E5875C /* User.swift */; };
+		8F5EED751C837DE300E5875C /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5EED741C837DE300E5875C /* Like.swift */; };
+		8F5EED771C837DEA00E5875C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5EED761C837DEA00E5875C /* Post.swift */; };
+		8F5EED791C837DEF00E5875C /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5EED781C837DEF00E5875C /* Comment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,10 @@
 		8F5EED691C837C2200E5875C /* AddPhotoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPhotoTableViewController.swift; sourceTree = "<group>"; };
 		8F5EED6B1C837CAB00E5875C /* LoginSingupChoiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSingupChoiceViewController.swift; sourceTree = "<group>"; };
 		8F5EED6D1C837D2700E5875C /* LoginSignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginSignupViewController.swift; sourceTree = "<group>"; };
+		8F5EED701C837DD300E5875C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8F5EED741C837DE300E5875C /* Like.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Like.swift; path = ../Like.swift; sourceTree = "<group>"; };
+		8F5EED761C837DEA00E5875C /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Post.swift; path = ../Post.swift; sourceTree = "<group>"; };
+		8F5EED781C837DEF00E5875C /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Comment.swift; path = ../Comment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,13 +119,8 @@
 			children = (
 				01E3FC241BE92C7600187536 /* AppDelegate.swift */,
 				01E3FC281BE92C7600187536 /* Main.storyboard */,
-				8F5EED6D1C837D2700E5875C /* LoginSignupViewController.swift */,
-				8F5EED6B1C837CAB00E5875C /* LoginSingupChoiceViewController.swift */,
-				8F5EED691C837C2200E5875C /* AddPhotoTableViewController.swift */,
-				8F5EED671C837B7D00E5875C /* ProfileViewController.swift */,
-				8F5EED651C837A7900E5875C /* UserSearchTableViewController.swift */,
-				8F5EED631C8379F500E5875C /* PostDetailTableViewController.swift */,
-				8F5EED611C83799F00E5875C /* TimelineTableViewController.swift */,
+				8F5EED7A1C837DF900E5875C /* Model */,
+				8F5EED6F1C837DC600E5875C /* Controllers */,
 				01E3FC2B1BE92C7600187536 /* Assets.xcassets */,
 				01E3FC2D1BE92C7600187536 /* LaunchScreen.storyboard */,
 				01E3FC301BE92C7600187536 /* Info.plist */,
@@ -141,6 +144,31 @@
 				01E3FC461BE92C7700187536 /* Info.plist */,
 			);
 			path = TimelineUITests;
+			sourceTree = "<group>";
+		};
+		8F5EED6F1C837DC600E5875C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8F5EED6D1C837D2700E5875C /* LoginSignupViewController.swift */,
+				8F5EED6B1C837CAB00E5875C /* LoginSingupChoiceViewController.swift */,
+				8F5EED691C837C2200E5875C /* AddPhotoTableViewController.swift */,
+				8F5EED671C837B7D00E5875C /* ProfileViewController.swift */,
+				8F5EED651C837A7900E5875C /* UserSearchTableViewController.swift */,
+				8F5EED631C8379F500E5875C /* PostDetailTableViewController.swift */,
+				8F5EED611C83799F00E5875C /* TimelineTableViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		8F5EED7A1C837DF900E5875C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8F5EED701C837DD300E5875C /* User.swift */,
+				8F5EED781C837DEF00E5875C /* Comment.swift */,
+				8F5EED741C837DE300E5875C /* Like.swift */,
+				8F5EED761C837DEA00E5875C /* Post.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,10 +303,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F5EED6E1C837D2700E5875C /* LoginSignupViewController.swift in Sources */,
+				8F5EED771C837DEA00E5875C /* Post.swift in Sources */,
 				8F5EED6A1C837C2200E5875C /* AddPhotoTableViewController.swift in Sources */,
 				8F5EED6C1C837CAB00E5875C /* LoginSingupChoiceViewController.swift in Sources */,
 				8F5EED621C83799F00E5875C /* TimelineTableViewController.swift in Sources */,
+				8F5EED751C837DE300E5875C /* Like.swift in Sources */,
 				01E3FC251BE92C7600187536 /* AppDelegate.swift in Sources */,
+				8F5EED791C837DEF00E5875C /* Comment.swift in Sources */,
+				8F5EED711C837DD300E5875C /* User.swift in Sources */,
 				8F5EED681C837B7D00E5875C /* ProfileViewController.swift in Sources */,
 				8F5EED661C837A7900E5875C /* UserSearchTableViewController.swift in Sources */,
 				8F5EED641C8379F500E5875C /* PostDetailTableViewController.swift in Sources */,
