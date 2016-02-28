@@ -2,30 +2,32 @@
 //  Post.swift
 //  Timeline
 //
-//  Created by Pierre on 2/23/16.
-//  Copyright © 2016 DevMountain. All rights reserved.
+//  Created by Taylor Mott on 11/3/15.
+//  Copyright © 2015 DevMountain. All rights reserved.
 //
 
 import Foundation
 
 struct Post: Equatable {
-    var username: String
-    var likes: [String]
-    var comments: [String]
-    var caption: String?
-    var imageEndPoint: String
+    let imageEndpoint: String
+    let caption: String?
+    let username: String
+    let comments: [Comment]
+    let likes: [Like]
     var identifier: String?
     
-    init(username: String, likes: [String], comments: [String], caption: String? = nil, imageEndPoint: String, identifier: String? = nil) {
-        self.username = username
-        self.likes = []
-        self.comments = []
+    init(imageEndpoint: String, caption: String?, username: String = "", comments: [Comment] = [], likes: [Like] = [], identifier: String? = nil) {
+        
+        self.imageEndpoint = imageEndpoint
         self.caption = caption
-        self.imageEndPoint = imageEndPoint
-        self.identifier = identifier
+        self.username = username
+        self.comments = comments
+        self.likes = likes
     }
+    
 }
 
 func ==(lhs: Post, rhs: Post) -> Bool {
-    return (lhs.username == rhs.identifier)
+    
+    return (lhs.username == rhs.username) && (lhs.identifier == rhs.identifier)
 }

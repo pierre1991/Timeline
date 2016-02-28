@@ -2,8 +2,8 @@
 //  PostDetailTableViewController.swift
 //  Timeline
 //
-//  Created by Pierre on 2/23/16.
-//  Copyright © 2016 DevMountain. All rights reserved.
+//  Created by Taylor Mott on 11/3/15.
+//  Copyright © 2015 DevMountain. All rights reserved.
 //
 
 import UIKit

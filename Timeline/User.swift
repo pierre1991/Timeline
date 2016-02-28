@@ -2,26 +2,28 @@
 //  User.swift
 //  Timeline
 //
-//  Created by Pierre on 2/23/16.
-//  Copyright © 2016 DevMountain. All rights reserved.
+//  Created by Taylor Mott on 11/3/15.
+//  Copyright © 2015 DevMountain. All rights reserved.
 //
 
 import Foundation
 
 struct User: Equatable {
-    var username: String
+    var username = ""
     var bio: String?
     var url: String?
     var identifier: String?
     
-    init(username: String, bio: String? = nil, url: String? = nil, identifier: String) {
+    init(username: String, uid: String, bio: String? = nil, url: String? = nil) {
+        
         self.username = username
         self.bio = bio
         self.url = url
-        self.identifier = identifier
+        self.identifier = uid
     }
 }
 
 func ==(lhs: User, rhs: User) -> Bool {
-    return (lhs.username == rhs.identifier)
+    
+    return (lhs.username == rhs.username) && (lhs.identifier == rhs.identifier)
 }
