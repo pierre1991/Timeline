@@ -8,88 +8,145 @@
 
 import UIKit
 
-class UserSearchTableViewController: UITableViewController {
+class UserSearchTableViewController: UITableViewController, UISearchResultsUpdating {
 
+    
+    
+    enum ViewMode: Int {
+        case All = 0
+        case Friends = 1
+    
+        func users(completion:(users: [User]?) -> Void) {
+            switch self {
+            case .All:
+                UserController.fetchAllUsers({ (user) -> Void in
+                    completion(users: user)
+                })
+                
+            case .Friends:
+                UserController.followedByUser(UserController.sharedController.currentUser, completion: { (followed) -> Void in
+                    completion(users: followed)
+                })
+            }
+        }
+    }
+    
+    
+    
+    var viewMode: ViewMode {
+        get {
+            return ViewMode(rawValue: modeSegmentedControl.selectedSegmentIndex)!
+        }
+    }
+    
+    var user: User?
+    var userDatasource: [User] = []
+    
+    func updateViewBasedOnMode() {
+        viewMode.users { (users) -> Void in
+            if let users = users {
+                self.userDatasource = users
+            } else {
+                self.userDatasource = []
+            }
+            self.tableView.reloadData()
+        }
+    }
+    
+    
+    @IBOutlet weak var modeSegmentedControl: UISegmentedControl!
+    
+    @IBAction func selectIndexChanged(sender: AnyObject) {
+    }
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        print(user)
+        updateViewBasedOnMode()
+        setupSearchController()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
+    
+    var userResultsDatasource: [User] = []
+    
+    var searchController: UISearchController!
+    
+
+
+    
+    
+    ////////////////////////////////////////////
+    //MARK: Search Controller
+    func setupSearchController() {
+        
+        let resultController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("UserSearchResultsTableViewController")
+        
+        searchController = UISearchController(searchResultsController: resultController)
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.sizeToFit()
+        searchController.hidesNavigationBarDuringPresentation = true
+        searchController.searchBar.placeholder = "search here.."
+        tableView.tableHeaderView = searchController.searchBar
+    }
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        let searchTerm = searchController.searchBar.text!.lowercaseString
+        
+        let resultsVC = searchController.searchResultsController as! UserSearchResultsTableViewController
+        resultsVC.userResultsDatasource = userResultsDatasource.filter({$0.username.lowercaseString.containsString(searchTerm)})
+    }
+    ///////////////////////////////////////////
+    
+
+    
+    
+    
+    
     // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return userDatasource.count
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
 
-        // Configure the cell...
-
+        let user = userDatasource[indexPath.row]
+        cell.textLabel?.text = user.username
         return cell
     }
-    */
+    
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
+    
+    
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
 
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
+    ///////////////////////////////////////////
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "toProfileView" {
+            guard let cell = sender as? UITableViewCell else {return}
+            
+            if let indexPath = tableView.indexPathForCell(cell) {
+                let user = userDatasource[indexPath.row]
+                let destinationVC = segue.destinationViewController as? ProfileViewController
+                destinationVC?.user = user
+            
+            } else if let indexPath = (searchController.searchResultsController as? UserSearchResultsTableViewController)?.tableView.indexPathForCell(cell) {
+                
+                let user = (searchController.searchResultsController as! UserSearchResultsTableViewController).userResultsDatasource[indexPath.row]
+                
+                let destinationViewController = segue.destinationViewController as? ProfileViewController
+                destinationViewController?.user = user
+            }
+        }
     }
-    */
+    //////////////////////////////////////////
 
 }

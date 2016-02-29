@@ -14,6 +14,7 @@ class LoginSignupViewController: UIViewController {
     enum ViewMode {
         case Login
         case Signup
+        case Edit
     }
 
     
@@ -25,6 +26,7 @@ class LoginSignupViewController: UIViewController {
     @IBOutlet weak var actionButton: UIButton!
     
     var viewMode = ViewMode.Signup
+    var user: User?
     
     func updateViewBasedOnMode() {
         switch viewMode {
@@ -36,8 +38,9 @@ class LoginSignupViewController: UIViewController {
 
         case .Signup:
             actionButton.setTitle("Signup", forState: .Normal)
+        case .Edit:
+            actionButton.setTitle("Edit", forState: .Normal)
         }
-        
     }
     
     var fieldsAreValid: Bool {
@@ -47,10 +50,16 @@ class LoginSignupViewController: UIViewController {
                 return !(emailField.text!.isEmpty || passwordField.text!.isEmpty)
             case .Signup:
                 return !(bioField.text!.isEmpty || urlField.text!.isEmpty || emailField.text!.isEmpty)
+            case .Edit:
+                return !(usernameField.text!.isEmpty)
             }
         }
     }
     
+    func updateWithUser(user: User) {
+        self.user = user
+        viewMode = .Edit
+    }
     
     @IBAction func actionButtonTapped(sender: AnyObject) {
         if fieldsAreValid {
@@ -59,7 +68,6 @@ class LoginSignupViewController: UIViewController {
                 UserController.authenticateUser(emailField.text!, password: passwordField.text!, completion: { (success, user) -> Void in
                     if success, let _ = user {
                         self.dismissViewControllerAnimated(true, completion: nil)
-                    
                     } else {
                         self.presentValidationAlertWithTitle("Sorry", message: "Could not login user")
                     }
@@ -68,9 +76,16 @@ class LoginSignupViewController: UIViewController {
                 UserController.createUser(usernameField.text!, email: emailField.text!, password: passwordField.text!, bio: bioField.text, url: urlField.text, competion: { (success, user) -> Void in
                     if success, let _ = user {
                         self.dismissViewControllerAnimated(true, completion: nil)
-                    
                     } else {
                         self.presentValidationAlertWithTitle("Sorry", message: "Could not signup user")
+                    }
+                })
+            case .Edit:
+                UserController.updateUser(self.user!, username: usernameField.text!, bio: bioField.text, url: urlField.text, completion: { (success, user) -> Void in
+                    if success {
+                        self.dismissViewControllerAnimated(true, completion: nil)
+                    } else {
+                        self.presentValidationAlertWithTitle("Sorry", message: "Unable to update user")
                     }
                 })
             }

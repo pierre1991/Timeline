@@ -38,6 +38,9 @@ class UserController {
     static func createUser(username: String, email: String, password: String, bio: String?, url: String?, competion:(success: Bool, user: User?) -> Void) {
     }
     
+    static func updateUser(user: User, username: String, bio: String?, url: String?, completion:(success: Bool, user: User?) -> Void) {
+    }
+    
     static func logoutUser() {
     }
     

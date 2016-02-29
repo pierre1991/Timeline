@@ -27,6 +27,9 @@
 		8F5EED7C1C839B7E00E5875C /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5EED7B1C839B7E00E5875C /* UserController.swift */; };
 		8F5EED7F1C839EC200E5875C /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5EED7E1C839EC200E5875C /* PostController.swift */; };
 		8F5EED811C839EC800E5875C /* ImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5EED801C839EC800E5875C /* ImageController.swift */; };
+		8F5EED831C83D1E300E5875C /* ProfileHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5EED821C83D1E300E5875C /* ProfileHeaderCollectionReusableView.swift */; };
+		8F5EED861C83D6D800E5875C /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5EED851C83D6D800E5875C /* ImageCollectionViewCell.swift */; };
+		8F5EED881C847BFC00E5875C /* UserSearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5EED871C847BFC00E5875C /* UserSearchResultsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,9 @@
 		8F5EED7B1C839B7E00E5875C /* UserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		8F5EED7E1C839EC200E5875C /* PostController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		8F5EED801C839EC800E5875C /* ImageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageController.swift; sourceTree = "<group>"; };
+		8F5EED821C83D1E300E5875C /* ProfileHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		8F5EED851C83D6D800E5875C /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		8F5EED871C847BFC00E5875C /* UserSearchResultsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchResultsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,8 +134,9 @@
 				8F5EED7A1C837DF900E5875C /* Model */,
 				8F5EED7D1C839B8900E5875C /* Model Controller */,
 				8F5EED6F1C837DC600E5875C /* Controllers */,
-				01E3FC2B1BE92C7600187536 /* Assets.xcassets */,
+				8F5EED841C83D1FB00E5875C /* View */,
 				01E3FC2D1BE92C7600187536 /* LaunchScreen.storyboard */,
+				01E3FC2B1BE92C7600187536 /* Assets.xcassets */,
 				01E3FC301BE92C7600187536 /* Info.plist */,
 			);
 			path = Timeline;
@@ -156,13 +163,14 @@
 		8F5EED6F1C837DC600E5875C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8F5EED611C83799F00E5875C /* TimelineTableViewController.swift */,
 				8F5EED6B1C837CAB00E5875C /* LoginSingupChoiceViewController.swift */,
 				8F5EED6D1C837D2700E5875C /* LoginSignupViewController.swift */,
-				8F5EED691C837C2200E5875C /* AddPhotoTableViewController.swift */,
-				8F5EED671C837B7D00E5875C /* ProfileViewController.swift */,
 				8F5EED651C837A7900E5875C /* UserSearchTableViewController.swift */,
+				8F5EED871C847BFC00E5875C /* UserSearchResultsTableViewController.swift */,
+				8F5EED671C837B7D00E5875C /* ProfileViewController.swift */,
+				8F5EED691C837C2200E5875C /* AddPhotoTableViewController.swift */,
 				8F5EED631C8379F500E5875C /* PostDetailTableViewController.swift */,
-				8F5EED611C83799F00E5875C /* TimelineTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -186,6 +194,15 @@
 				8F5EED801C839EC800E5875C /* ImageController.swift */,
 			);
 			name = "Model Controller";
+			sourceTree = "<group>";
+		};
+		8F5EED841C83D1FB00E5875C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8F5EED821C83D1E300E5875C /* ProfileHeaderCollectionReusableView.swift */,
+				8F5EED851C83D6D800E5875C /* ImageCollectionViewCell.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F5EED861C83D6D800E5875C /* ImageCollectionViewCell.swift in Sources */,
 				8F5EED6E1C837D2700E5875C /* LoginSignupViewController.swift in Sources */,
 				8F5EED771C837DEA00E5875C /* Post.swift in Sources */,
 				8F5EED6A1C837C2200E5875C /* AddPhotoTableViewController.swift in Sources */,
@@ -327,9 +345,11 @@
 				8F5EED811C839EC800E5875C /* ImageController.swift in Sources */,
 				8F5EED7C1C839B7E00E5875C /* UserController.swift in Sources */,
 				8F5EED751C837DE300E5875C /* Like.swift in Sources */,
+				8F5EED831C83D1E300E5875C /* ProfileHeaderCollectionReusableView.swift in Sources */,
 				01E3FC251BE92C7600187536 /* AppDelegate.swift in Sources */,
 				8F5EED791C837DEF00E5875C /* Comment.swift in Sources */,
 				8F5EED711C837DD300E5875C /* User.swift in Sources */,
+				8F5EED881C847BFC00E5875C /* UserSearchResultsTableViewController.swift in Sources */,
 				8F5EED681C837B7D00E5875C /* ProfileViewController.swift in Sources */,
 				8F5EED7F1C839EC200E5875C /* PostController.swift in Sources */,
 				8F5EED661C837A7900E5875C /* UserSearchTableViewController.swift in Sources */,
