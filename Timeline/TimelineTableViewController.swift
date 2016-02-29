@@ -10,47 +10,45 @@ import UIKit
 
 class TimelineTableViewController: UITableViewController {
     
-    var posts: [Post] = []
     
+    
+    var post: [Post] = []
     
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         if let currentUser = UserController.sharedController.currentUser {
-            if posts.count > 0 {
+            if post.count > 0 {
                 loadTimelineForUser(currentUser)
-            
-            } else {
-                tabBarController?.performSegueWithIdentifier("", sender: nil)
             }
+        } else {
+            tabBarController?.performSegueWithIdentifier("noCurrentUserSegue", sender: nil)
         }
     }
-
+    
     func loadTimelineForUser(user: User) {
         PostController.fetchTimelineForUser(user) { (posts) -> Void in
             if let posts = posts {
-                self.posts = posts
+                self.post = posts
             }
         }
     }
+    
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
+    
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
