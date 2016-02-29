@@ -10,11 +10,13 @@ import Foundation
 
 class UserController {
     
-    var currentUser: User! = nil
     
+    //MARK: Properties
+    var currentUser: User! = nil
     static let sharedController = UserController()
     
-    
+
+    //MARK: Functions
     static func userForIdentifier(identifier: String, completion:(user: User?) -> Void) {
     }
     
@@ -33,12 +35,14 @@ class UserController {
     static func authenticateUser(email: String, password: String, completion:(success: Bool, user: User?) -> Void) {
     }
     
-    static func createUser(username: String, email: String, password: String, bio: String?, url: String?, competion:(success: Bool, usre: User?) -> Void) {
+    static func createUser(username: String, email: String, password: String, bio: String?, url: String?, competion:(success: Bool, user: User?) -> Void) {
     }
     
     static func logoutUser() {
     }
     
+
+    //MARK: Mock Data
     static func mockUsers() -> [User] {
         
         let user1 = User(username: "Pete", bio: nil, url: nil, identifier: "1234")

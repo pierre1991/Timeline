@@ -10,7 +10,8 @@ import Foundation
 
 class PostController {
     
-    
+
+    //MARK: Functions
     static func fetchTimelineForUser(user: User, completion:(posts:[Post]?) -> Void) {
     }
     
@@ -43,6 +44,7 @@ class PostController {
     }
     
     
+    //MARK: Mock Data
     static func mockPosts() -> [Post] {
         
         let sampleImageID = "K1l4125TYvKMc7rcp5e"
