@@ -111,8 +111,19 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, Profi
             _ = destinationViewController?.view
             
             destinationViewController?.updateWithUser(user!)
+        
+        } else if segue.identifier == "profileToPostTableView" { //profileToPostTableView
+            if let  cell = sender as? UICollectionViewCell,
+                    indexPath = collectionView.indexPathForCell(cell) {
+                        
+                        let post = userPosts[indexPath.row]
+                        let destinationVC = segue.destinationViewController as? PostDetailTableViewController
+                        
+                        destinationVC?.post = post
+            }
         }
     }
+    
     
     
     override func viewDidLoad() {
@@ -124,9 +135,11 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, Profi
         }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+
+    
+    
+    
+    
     
 
 

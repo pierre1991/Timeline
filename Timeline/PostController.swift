@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class PostController {
     
@@ -15,7 +16,7 @@ class PostController {
     static func fetchTimelineForUser(user: User, completion:(posts:[Post]?) -> Void) {
     }
     
-    static func addPost(image: String, caption: String?, completion:(success: Bool, post: Post?) -> Void) {
+    static func addPost(image: UIImage?, caption: String?, completion:(success: Bool, post: Post?) -> Void) {
     }
     
     static func postFromIdentifier(identifier: String, completion:(post: Post?) -> Void) {
