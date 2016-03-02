@@ -10,6 +10,13 @@ import Foundation
 
 struct Post: Equatable {
     
+    private var kUsername = "usernameKey"
+    private var kComments = "commentsKey"
+    private var kLikes = "likesKey"
+    private var kImage = "imageKey"
+    private var kCaption = "captionKey"
+    
+    
     var username: String
     var comments: [Comment]
     var likes: [Like]

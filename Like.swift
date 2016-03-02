@@ -10,6 +10,10 @@ import Foundation
 
 struct Like: Equatable {
     
+    private var kUsername = "usernameKey"
+    private var kPost = "postKey"
+    
+    
     var username: String
     var identifier: String
     var postIdentifier: String?
