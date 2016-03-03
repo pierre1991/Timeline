@@ -104,12 +104,11 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, Profi
     }
     
     
+    //MARK: Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toEditProfile" {
             let destinationViewController = segue.destinationViewController as? LoginSignupViewController
-            
             _ = destinationViewController?.view
-            
             destinationViewController?.updateWithUser(user!)
         
         } else if segue.identifier == "profileToPostTableView" { //profileToPostTableView
@@ -133,6 +132,8 @@ class ProfileViewController: UIViewController, UICollectionViewDataSource, Profi
             user = UserController.sharedController.currentUser
             editButtonItem().enabled = true
         }
+        
+        updateBasedOnUser()
     }
 
 

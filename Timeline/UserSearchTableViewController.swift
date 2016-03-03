@@ -10,8 +10,6 @@ import UIKit
 
 class UserSearchTableViewController: UITableViewController, UISearchResultsUpdating {
 
-    
-    
     enum ViewMode: Int {
         case All = 0
         case Friends = 1
@@ -30,8 +28,6 @@ class UserSearchTableViewController: UITableViewController, UISearchResultsUpdat
             }
         }
     }
-    
-    
     
     var viewMode: ViewMode {
         get {
@@ -57,6 +53,7 @@ class UserSearchTableViewController: UITableViewController, UISearchResultsUpdat
     @IBOutlet weak var modeSegmentedControl: UISegmentedControl!
     
     @IBAction func selectIndexChanged(sender: AnyObject) {
+        updateViewBasedOnMode()
     }
     
     
@@ -81,11 +78,10 @@ class UserSearchTableViewController: UITableViewController, UISearchResultsUpdat
 
     
     
-    ////////////////////////////////////////////
     //MARK: Search Controller
     func setupSearchController() {
         
-        let resultController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("UserSearchResultsTableViewController")
+        let resultController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("userSearchResults")
         
         searchController = UISearchController(searchResultsController: resultController)
         searchController.searchResultsUpdater = self
@@ -101,12 +97,7 @@ class UserSearchTableViewController: UITableViewController, UISearchResultsUpdat
         let resultsVC = searchController.searchResultsController as! UserSearchResultsTableViewController
         resultsVC.userResultsDatasource = userResultsDatasource.filter({$0.username.lowercaseString.containsString(searchTerm)})
     }
-    ///////////////////////////////////////////
-    
 
-    
-    
-    
     
     // MARK: - Table view data source
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -114,7 +105,7 @@ class UserSearchTableViewController: UITableViewController, UISearchResultsUpdat
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("userSearchCell", forIndexPath: indexPath)
 
         let user = userDatasource[indexPath.row]
         cell.textLabel?.text = user.username
@@ -122,12 +113,6 @@ class UserSearchTableViewController: UITableViewController, UISearchResultsUpdat
     }
     
 
-    
-    
-
-
-
-    ///////////////////////////////////////////
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toProfileView" {
@@ -141,12 +126,11 @@ class UserSearchTableViewController: UITableViewController, UISearchResultsUpdat
             } else if let indexPath = (searchController.searchResultsController as? UserSearchResultsTableViewController)?.tableView.indexPathForCell(cell) {
                 
                 let user = (searchController.searchResultsController as! UserSearchResultsTableViewController).userResultsDatasource[indexPath.row]
-                
                 let destinationViewController = segue.destinationViewController as? ProfileViewController
                 destinationViewController?.user = user
             }
         }
     }
-    //////////////////////////////////////////
+
 
 }

@@ -201,9 +201,9 @@
 		8F5EED6F1C837DC600E5875C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8F5EED611C83799F00E5875C /* TimelineTableViewController.swift */,
 				8F5EED6B1C837CAB00E5875C /* LoginSingupChoiceViewController.swift */,
 				8F5EED6D1C837D2700E5875C /* LoginSignupViewController.swift */,
+				8F5EED611C83799F00E5875C /* TimelineTableViewController.swift */,
 				8F5EED651C837A7900E5875C /* UserSearchTableViewController.swift */,
 				8F5EED871C847BFC00E5875C /* UserSearchResultsTableViewController.swift */,
 				8F5EED671C837B7D00E5875C /* ProfileViewController.swift */,
@@ -217,9 +217,9 @@
 			isa = PBXGroup;
 			children = (
 				8F5EED701C837DD300E5875C /* User.swift */,
+				8F5EED761C837DEA00E5875C /* Post.swift */,
 				8F5EED781C837DEF00E5875C /* Comment.swift */,
 				8F5EED741C837DE300E5875C /* Like.swift */,
-				8F5EED761C837DEA00E5875C /* Post.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -227,10 +227,10 @@
 		8F5EED7D1C839B8900E5875C /* Model Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8FD977431C8649F800C6C793 /* FirebaseController.swift */,
 				8F5EED7B1C839B7E00E5875C /* UserController.swift */,
 				8F5EED7E1C839EC200E5875C /* PostController.swift */,
 				8F5EED801C839EC800E5875C /* ImageController.swift */,
-				8FD977431C8649F800C6C793 /* FirebaseController.swift */,
 			);
 			name = "Model Controller";
 			sourceTree = "<group>";

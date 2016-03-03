@@ -10,7 +10,6 @@ import UIKit
 
 class LoginSignupViewController: UIViewController {
     
-    
     enum ViewMode {
         case Login
         case Signup
@@ -73,7 +72,7 @@ class LoginSignupViewController: UIViewController {
                     }
                 })
             case .Signup:
-                UserController.createUser(usernameField.text!, email: emailField.text!, password: passwordField.text!, bio: bioField.text, url: urlField.text, competion: { (success, user) -> Void in
+                UserController.createUser(usernameField.text!, email: emailField.text!, password: passwordField.text!, bio: bioField.text, url: urlField.text, completion: { (success, user) -> Void in
                     if success, let _ = user {
                         self.dismissViewControllerAnimated(true, completion: nil)
                     } else {
@@ -103,12 +102,6 @@ class LoginSignupViewController: UIViewController {
 
     
     
-    
-    
- 
-    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         

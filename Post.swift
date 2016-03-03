@@ -24,7 +24,7 @@ struct Post: Equatable, FirebaseType {
     var caption: String?
     var identifier: String?
     
-    var endpoin: String {
+    var endpoint: String {
         return "posts"
     }
     

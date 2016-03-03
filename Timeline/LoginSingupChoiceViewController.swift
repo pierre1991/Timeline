@@ -11,8 +11,6 @@ import UIKit
 class LoginSingupChoiceViewController: UIViewController {
 
     
-    
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toLoginView" {
             let destinationVC = segue.destinationViewController as? LoginSignupViewController
@@ -24,16 +22,10 @@ class LoginSingupChoiceViewController: UIViewController {
         }
     }
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
 
 }
