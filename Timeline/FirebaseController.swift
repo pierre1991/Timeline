@@ -24,10 +24,8 @@ class FirebaseController {
             } else {
                 completion(data: snapshot.value)
             }
-        
         })
     }
-    
     
     static func observeDataAtEndpoint(endpoint: String, completion:(data:AnyObject?) -> Void) {
         let newRef = FirebaseController.base.childByAppendingPath(endpoint)
@@ -40,7 +38,6 @@ class FirebaseController {
             }
         })
     }
-    
 }
 
 
@@ -50,18 +47,15 @@ protocol FirebaseType {
     var identifier:String? {get set}
     var endpoint:String {get}
     var jsonValue:[String:AnyObject] {get}
-        init?(json: [String:AnyObject], identifier: String)
-    
+    init?(json: [String:AnyObject], identifier: String)
     
     mutating func save()
     func delete()
-    
 }
 
 extension FirebaseType {
 
     mutating func save() {
-    
         var endPoint: Firebase
 
         if let childID = identifier {
@@ -73,9 +67,7 @@ extension FirebaseType {
     }
     
     func delete() {
-        
         let endPoint = FirebaseController.base.childByAppendingPath(endpoint).childByAppendingPath(self.identifier)
         endPoint.removeValue()
-        
     }
 }

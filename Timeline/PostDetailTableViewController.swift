@@ -74,7 +74,7 @@ class PostDetailTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("postCell", forIndexPath: indexPath)
         let comment = post?.comments[indexPath.row]
         
         if let comment = comment {

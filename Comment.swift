@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Comment: Equatable {
+struct Comment: Equatable, FirebaseType {
 
     private var kUsername = "usernameKey"
     private var kText = "textKey"
